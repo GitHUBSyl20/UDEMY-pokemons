@@ -24,7 +24,7 @@ const pokemonsRoutes: Routes = [
 
 @NgModule({
 	imports: [
-		  //routes additionnels par raport à celle diu module racine
+		  //routes additionnels par raport à celle du module racine
     //SEULEMENT pour le module racine ont utilise la méthode forRoot
 		RouterModule.forChild(pokemonsRoutes)
 	],

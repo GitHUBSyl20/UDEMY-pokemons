@@ -24,11 +24,13 @@
           <tr>
             <td>Types</td>
             <td>
+              <!--la class est un pipe ! qui va modifier le type à partir de la foncion pokemontypecolor-->
               <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">{{ type }}</span>
             </td>
           </tr>
           <tr>
             <td>Date de création</td>
+            <!--transformation de la propriété à l'aide du pipe-->
             <td><em>{{ pokemon.created | date:"dd/MM/yyyy" }}</em></td>
           </tr>
         </tbody>

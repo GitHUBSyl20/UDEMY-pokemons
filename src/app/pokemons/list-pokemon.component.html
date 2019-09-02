@@ -11,6 +11,7 @@
           <div class="card-content">
             <p>{{ pokemon.name }}</p>
             <p><small>{{ pokemon.created | date:"dd/MM/yyyy" }}</small></p>
+            <!--On retourne la classe retourné par la pipe-->
             <span *ngFor='let type of pokemon.types' class="{{ type | pokemonTypeColor }}">{{ type }}</span>
           </div>
         </div>

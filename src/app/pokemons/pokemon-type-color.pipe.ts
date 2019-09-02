@@ -9,8 +9,11 @@ import { Pokemon } from './pokemon';
 //déclaration du pipe avant utilisation
 @Pipe({ name: 'pokemonTypeColor' })
 export class PokemonTypeColorPipe implements PipeTransform {
-	 //l'interface pipetransform possède une méthode transform
-  //la valeure du paramètre de transform est la prop sur laquelle s'applique notre pipe
+
+	//l'interface pipetransform possède une méthode transform
+
+   //la valeur du paramètre de transform est la prop sur laquelle s'applique notre pipe
+ 
 	transform(type: string): string {
 
 		let color: string;
@@ -54,8 +57,6 @@ export class PokemonTypeColorPipe implements PipeTransform {
 				color = 'grey';
 				break;
 		}
-
 		return 'chip ' + color;
-
 	}
 }

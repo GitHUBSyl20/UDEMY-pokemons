@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemons';
+
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -18,6 +18,7 @@ export class PokemonsService {
 	//cette méthode évite de répéter la boucle dans list et details component et dans 
     // Retourne tous les pokémons
 	getPokemons(): Observable<Pokemon[]> {
+		console.log("getPokemons all from service")
 		return this.http.get<Pokemon[]>(this.pokemonsUrl).pipe(
 			tap(_ => this.log(`fetched pokemons`)),
 			catchError(this.handleError('getPokemons', []))
@@ -27,13 +28,13 @@ export class PokemonsService {
 	/** GET pokemon */
 	    // Retourne le pokémon avec l'identifiant passé en paramètre
 	getPokemon(id: number): Observable<Pokemon> {
-		const url = `${this.pokemonsUrl}/${id}`;
-
-		return this.http.get<Pokemon>(url).pipe(
-			tap(_ => this.log(`fetched pokemon id=${id}`)),
-			catchError(this.handleError<Pokemon>(`getPokemon id=${id}`))
-		);
-	}
+			const url = `${this.pokemonsUrl}/${id}`;
+		console.log("getPokemon SOlo", "test")
+			return this.http.get<Pokemon>(url).pipe(
+				tap(_ => this.log(`fetched pokemon id=${id}`)),
+				catchError(this.handleError<Pokemon>(`getPokemon id=${id}`))
+			);
+		}
 
 	/** GET types */
 	getPokemonTypes(): Array<string> {

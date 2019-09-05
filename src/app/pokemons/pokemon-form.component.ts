@@ -36,6 +36,7 @@ export class PokemonFormComponent implements OnInit {
 	selectType($event: any, type: string): void {
 		//modèle du pokemon mis à jour en ajoutant à chaque fois que l'utilisateur selectionne ou désélectionne un type
 		let checked = $event.target.checked;
+		console.log("selectType")
 		if (checked) {
 			this.pokemon.types.push(type);
 		} else {
@@ -53,9 +54,15 @@ export class PokemonFormComponent implements OnInit {
     //On ne peut pas choisir ou rajouter cet type
 
 	isTypesValid(type: string): boolean {
+		console.log("istypeValid")
+		//si un seul type présente et appartenant au pokemon en cours d'édition
+		//alors type disabled
 		if (this.pokemon.types.length === 1 && this.hasType(type)) {
 			return false;
-		}
+		} 
+
+		//si plus de 3 types et le type n'appartient pas au pokemon en cours d'édition
+		//alors type disabled
 		if (this.pokemon.types.length >= 3 && !this.hasType(type)) {
 			return false;
 		}
